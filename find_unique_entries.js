@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 
-async function readFileAndGetEntries() {
+export async function readFileAndGetEntries() {
   try {
     // This dump is collected from:
     // https://crt.sh/?q=%.kea.dk
@@ -15,10 +15,10 @@ async function readFileAndGetEntries() {
     entries.forEach((sub) => {
       fs.appendFile(resultFileName, `${sub}\n`);
     });
-    console.log("wrote the results to:", resultFileName)
+    console.log("wrote the results to:", resultFileName);
   } catch (err) {
     console.error(err);
   }
 }
 
-readFileAndGetEntries();
+// readFileAndGetEntries();

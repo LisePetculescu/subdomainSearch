@@ -1,26 +1,15 @@
-import dns from "dns";
-import fs from "fs";
-import csv from "csv-parser";
+import { readFileAndGetEntries } from "./find_unique_entries.js";
+import { findUsedSubdomains } from "./find_used_subdomains.js";
+console.log("Hello world");
 
-import dns from "dns/promises"; 
-import fs from "fs";
-import csv from "csv-parser";
+async function start() {
+  await readFileAndGetEntries();
 
-const promises = [];
+  await findUsedSubdomains();
 
-fs.createReadStream("subdomains-10000.txt")
-  .pipe(csv())
-  .on("data", (subdomain) => {
-    promises.push(
-      dns
-        .resolve(`${subdomain}.mega-bank.com`)
-        .then((ip) => ({ subdomain, ip }))
-        .catch(() => ({ subdomain, ip: null }))
-    );
-  })
-  .on("end", async () => {
-    const results = await Promise.all(promises);
-    results.forEach((result) => {
-      if (result.ip) console.log(result);
-    });
-  });
+
+
+  
+}
+
+start();

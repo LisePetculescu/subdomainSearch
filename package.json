@@ -1,5 +1,11 @@
 {
   "name": "subdomain-search",
   "version": "1.0.0",
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "format": "npx prettier --write \"**/*.js\""
+  },
+  "dependencies": {
+    "prettier": "^3.6.2"
+  }
 }
