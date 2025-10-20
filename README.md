@@ -28,5 +28,19 @@ To run the script and see results in your terminal:
 
      docker run --rm subdomain-search
 
+**Alternative - local run**:
+
+Open the project on a computer and in the terminal write: 
+
+     npm install
+
+
+Then: 
+
+     npm start
+
+This way you an see the generated files locally.
+
+
 
 
