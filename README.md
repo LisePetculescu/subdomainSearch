@@ -29,6 +29,4 @@ To run the script and see results in your terminal:
      docker run --rm subdomain-search
 
 
-**Optional: Save Output to Your Computer**
-     docker run --rm -v $(pwd)/output:/home/projects/subdomain-search/output subdomain-search
 
