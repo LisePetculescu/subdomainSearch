@@ -2,7 +2,7 @@ import dns from "dns";
 import fs from "fs";
 import csv from "csv-parser";
 
-import dns from "dns/promises"; // Node 18+
+import dns from "dns/promises"; 
 import fs from "fs";
 import csv from "csv-parser";
 
