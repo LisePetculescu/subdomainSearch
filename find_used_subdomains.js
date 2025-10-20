@@ -1,11 +1,11 @@
-import dns from 'dns/promises';
-import fs from 'fs';
-import readline from 'readline';
+import dns from "dns/promises";
+import fs from "fs";
+import readline from "readline";
 
 export async function findUsedSubdomains() {
   try {
-    const inputFile = 'subdomains.txt';
-    const outputFile = 'resolved-subdomains.txt';
+    const inputFile = "subdomains.txt";
+    const outputFile = "resolved-subdomains.txt";
 
     const promises = [];
     const fileStream = fs.createReadStream(inputFile);
@@ -22,7 +22,7 @@ export async function findUsedSubdomains() {
           dns
             .resolve(subdomain)
             .then((ip) => ({ subdomain, ip }))
-            .catch(() => ({ subdomain, ip: null }))
+            .catch(() => ({ subdomain, ip: null })),
         );
       }
     }
@@ -36,16 +36,16 @@ export async function findUsedSubdomains() {
     resolved.forEach((r) => console.log(r));
 
     // Save to file
-    const outputData = resolved.map((r) => `${r.subdomain} -> ${r.ip.join(', ')}`).join('\n');
-    fs.writeFileSync(outputFile, outputData, 'utf-8');
+    const outputData = resolved
+      .map((r) => `${r.subdomain} -> ${r.ip.join(", ")}`)
+      .join("\n");
+    fs.writeFileSync(outputFile, outputData, "utf-8");
 
     console.log(`Results saved to ${outputFile}`);
   } catch (error) {
-    console.error('Error resolving subdomains:', error);
+    console.error("Error resolving subdomains:", error);
   }
 }
-
-
 
 // import dns from "dns/promises";
 // import fs from "fs";
@@ -76,4 +76,3 @@ export async function findUsedSubdomains() {
 // results.forEach((result) => {
 //   if (result.ip) console.log(result);
 // });
-

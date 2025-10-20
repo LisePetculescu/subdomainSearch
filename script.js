@@ -6,10 +6,6 @@ async function start() {
   await readFileAndGetEntries();
 
   await findUsedSubdomains();
-
-
-
-  
 }
 
 start();
